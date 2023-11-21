@@ -167,7 +167,7 @@ li .extras:active, li .extras:hover {
 }*/
 /*HERO*/
 .hero {
-    background: url(img/Fondo_hero_grande_Mesa\ de\ trabajo\ 1\ copia.jpg) no-repeat;
+    background: url(img/Placa\ grande_Mesa\ de\ trabajo\ 1\ copia.jpg) no-repeat;
     background-size: cover;
     background-position: center center;
     height: calc(110vh - 80px); 
@@ -175,17 +175,20 @@ li .extras:active, li .extras:hover {
     flex-flow: column nowrap;
 }
 .texto_hero {
-    margin-top: 13rem;
+    margin-top: 12rem;
     margin-left: 3rem;
 }
 .estilo_texto_hero {
     color: var(--white);
    /*text-transform: uppercase;*/
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     font-weight: 500;
     padding: 1rem 0.5rem;
     letter-spacing: 2px;
     text-shadow: 2px 2px 3px #838383;
+}
+.imagen_hero {
+    width: 230px;
 }
 /*INSTITUCIONAL*/ 
 .titulo_seccion {
