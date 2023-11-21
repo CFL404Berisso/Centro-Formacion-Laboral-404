@@ -587,7 +587,7 @@ li .extras:active, li .extras:hover {
         margin-right: 0;
     }
     .imagen_hero {
-        width: 160px;
+        width: 140px;
     }
     .hero {
         background: url(img/Placas\ hero-03.jpg) no-repeat;
@@ -600,13 +600,11 @@ li .extras:active, li .extras:hover {
         margin-right: 2rem;
         display: flex;
         align-items: center;
-        flex-direction: column;
-        text-align: center;
 
     }
     .estilo_texto_hero  {
         padding: 0;
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
     .barra2 {
         border-bottom: 1px solid var(--blue);
