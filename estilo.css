@@ -333,7 +333,7 @@ li .extras:active, li .extras:hover {
     flex-direction: column;
 }
 
-.boton_cursos {
+.openPopup {
     border: none;
 }
 

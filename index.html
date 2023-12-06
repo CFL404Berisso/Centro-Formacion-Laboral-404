@@ -89,8 +89,22 @@
             <img src="img/engranajes_titulos_Mesa de trabajo 1.svg" alt="puntos titulos" height="30px" width="auto" class="puntitos">
         </div>
         <section class="container_cursos">
+
+
+            <!-- Contenedor único del pop-up -->
+            <div id="popupContainer" class="popup-container">
+                <div class="popup-content">
+                    <h2 id="courseTitle"></h2>
+                    <p id="courseDescription"></p>
+                    <div id="courseMedia"></div>
+                    <p id="courseData"></p>
+                    <a id="courseLink" href="#" target="_blank">Ir al curso</a>
+                    <button id="closePopup">Cerrar</button>
+                </div>
+            </div>
+
             <div class="cursos">
-                <button class="boton_cursos" id="openPopupTMA">
+                <button class="openPopup" data-course="curso1">
                     <div class="zoom">
                         <img src="img/Cursos_Mesa de trabajo 1.jpg" alt="" class="imagen_curso">
                     </div>
@@ -101,32 +115,30 @@
                 </button>
                 </div>
             </div>
-            <div id="popupContainerTMA" class="popup-container"> <!-- TMA = Técnico/a en Medio Ambiente -->
-                <div class="popup-content">
-                    <!-- Contenido de tu pop-up -->
-                    <p>¡Hola! Este es tu pop-up de Técnico/a en Medio Ambiente.</p>
-                    <button id="closePopupTMA">Cerrar</button>
-                </div>
+            
+            <div class="cursos">
+                <button class="openPopup" data-course="curso2">
+                    <div class="zoom">
+                        <img src="img/Cursos_Mesa de trabajo 1 copia 3.jpg" alt="" class="imagen_curso">
+                    </div>
+                    <div class="titulo_cursos">
+                        <h2 class="estilo_h2">Operario/a de Máquinas pesadas</h2>
+                        <h3 class="estilo_h3">Duración: 5 meses</h3>
+                        <h2 class="boton_info"><p>+INFO / INSCRIPCIÓN</p></h2>
+                    </div>
+                 </button>
             </div>
             <div class="cursos">
-                <div class="zoom">
-                    <a href="" target=""><img src="img/Cursos_Mesa de trabajo 1 copia 3.jpg" alt="" class="imagen_curso"></a>
-                </div>
-                <div class="titulo_cursos">
-                    <h2 class="estilo_h2">Operario/a de Máquinas pesadas</h2>
-                    <h3 class="estilo_h3">Duración: 5 meses</h3>
-                    <h2 class="boton_info"><a href="" target="">+INFO / INSCRIPCIÓN</a></h2>
-                </div>
-            </div>
-            <div class="cursos">
-                <div class="zoom">
-                    <a href="" target=""><img src="img/Cursos_Mesa de trabajo 1 copia 2.jpg" alt="" class="imagen_curso"></a>
-                </div>
-                <div class="titulo_cursos">
-                    <h2 class="estilo_h2">Programador/a Web</h2>
-                    <h3 class="estilo_h3">Duración: 5 meses</h3>
-                    <h2 class="boton_info"><a href="" target="">+INFO / INSCRIPCIÓN</a></h2>
-                </div>
+                <button class="openPopup" data-course="curso3">
+                    <div class="zoom">
+                        <img src="img/Cursos_Mesa de trabajo 1 copia 2.jpg" alt="" class="imagen_curso">
+                    </div>
+                    <div class="titulo_cursos">
+                        <h2 class="estilo_h2">Programador/a Web</h2>
+                        <h3 class="estilo_h3">Duración: 5 meses</h3>
+                        <h2 class="boton_info"><p>+INFO / INSCRIPCIÓN</p></h2>
+                    </div>
+                </button>
             </div>
             <div class="cursos">
                 <div class="zoom">
