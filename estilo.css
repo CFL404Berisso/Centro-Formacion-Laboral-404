@@ -320,6 +320,46 @@ li .extras:active, li .extras:hover {
 .boton_info a:hover {
     color: var(--black);
 }
+
+.boton_info p {
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 1.4rem;
+    padding: 0.5rem 0 0.5rem 0.3rem;
+    color: var(--ligth-blue);
+    display: inline-block;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.boton_cursos {
+    border: none;
+}
+
+.boton_info p:hover {
+    color: var(--black);
+}
+
+/*popup cursos*/
+.popup-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 /*TECNOLOGIA*/
 .tecnologia_pelotas {
     background-color: var(--ligth-soft-blue);

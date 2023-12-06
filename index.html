@@ -90,13 +90,22 @@
         </div>
         <section class="container_cursos">
             <div class="cursos">
-                <div class="zoom">
-                    <a href="" target=""><img src="img/Cursos_Mesa de trabajo 1.jpg" alt="" class="imagen_curso"></a>
+                <button class="boton_cursos" id="openPopupTMA">
+                    <div class="zoom">
+                        <img src="img/Cursos_Mesa de trabajo 1.jpg" alt="" class="imagen_curso">
+                    </div>
+                    <div class="titulo_cursos">
+                        <h2 class="estilo_h2">Técnico/a en Medio Ambiente</h2>
+                        <h3 class="estilo_h3">Duración: 10 meses</h3>
+                        <h2 class="boton_info"><p>+INFO / INSCRIPCIÓN</p></h2>
+                </button>
                 </div>
-                <div class="titulo_cursos">
-                    <h2 class="estilo_h2">Técnico/a en Medio Ambiente</h2>
-                    <h3 class="estilo_h3">Duración: 10 meses</h3>
-                    <h2 class="boton_info"><a href="l" target="">+INFO / INSCRIPCIÓN</a></h2>
+            </div>
+            <div id="popupContainerTMA" class="popup-container"> <!-- TMA = Técnico/a en Medio Ambiente -->
+                <div class="popup-content">
+                    <!-- Contenido de tu pop-up -->
+                    <p>¡Hola! Este es tu pop-up de Técnico/a en Medio Ambiente.</p>
+                    <button id="closePopupTMA">Cerrar</button>
                 </div>
             </div>
             <div class="cursos">
@@ -271,5 +280,6 @@
             </div>
         </footer>
     </main>
+    <script src="script.js"></script>
 </body>
 </html>
