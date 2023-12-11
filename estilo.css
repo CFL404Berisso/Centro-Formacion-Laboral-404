@@ -15,6 +15,23 @@
     --blue: #166193;
     --ligth-soft-blue: #8fd8fd;
 }
+.m {
+    margin-top: 10rem;
+}
+
+/*CUSTOM*/
+.sombra-abajo{
+    box-shadow: 0px 35px 30px 2px #ddd;
+}
+
+.sombra-arriba{
+    box-shadow: 0px -35px 30px 2px #ddd;
+
+}
+#Institucional {
+   padding-top: 10rem;
+   
+}
 /*NAVEGADOR 1*/
 header {
     width: 100%;
@@ -682,4 +699,21 @@ li .extras:active, li .extras:hover {
     padding-right: 0rem;
     margin-top: 0rem;
 }
+}
+.pagcursos {
+    padding-top: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.pt{
+    padding-top:13rem;
+}
+
+.ma {
+    margin:auto 20%;
+}
+
+.pagcursos ul li {
+    padding: 1% 0 !important;
 }
