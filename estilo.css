@@ -345,8 +345,9 @@ li .extras:active, li .extras:hover {
 .popup-container {
     display: none;
     position: fixed;
-    top: 0;
+    top: 10%;
     left: 0;
+    margin-bottom: 20%;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
@@ -360,6 +361,7 @@ li .extras:active, li .extras:hover {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 /*TECNOLOGIA*/
 .tecnologia_pelotas {
     background-color: var(--ligth-soft-blue);
