@@ -274,12 +274,15 @@ li .extras:active, li .extras:hover {
     padding: 14px 30px 12px;
     border: none;
     color: var(--white);
-    background-color: var(--ligth-blue);
+    background-color: var(--blue);
     border-radius: 10px;
     cursor: pointer;
 }
+.mas_info a {
+    color: var(--white);
+}
 .mas_info:hover {
-    background-color: chocolate;
+    background-color: var(--ligth-blue);
 }
 /*CURSOS*/
 .container_cursos {
@@ -716,4 +719,17 @@ li .extras:active, li .extras:hover {
 
 .pagcursos ul li {
     padding: 1% 0 !important;
+}
+
+.h {
+    height: 3rem;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.fondo {
+  background-image: url('img/fondo-pag-cursos.png');
+  background-size: cover; /* Para cubrir todo el fondo */
+  background-position: center; /* Para centrar la imagen */
+  background-repeat: no-repeat; /* Para evitar que la imagen se repita */
 }
