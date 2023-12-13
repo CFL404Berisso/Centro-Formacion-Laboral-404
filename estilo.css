@@ -19,19 +19,6 @@
     margin-top: 10rem;
 }
 
-/*CUSTOM*/
-.sombra-abajo{
-    box-shadow: 0px 35px 30px 2px #ddd;
-}
-
-.sombra-arriba{
-    box-shadow: 0px -35px 30px 2px #ddd;
-
-}
-#Institucional {
-   padding-top: 10rem;
-   
-}
 /*NAVEGADOR 1*/
 header {
     width: 100%;
@@ -550,8 +537,8 @@ li .extras:active, li .extras:hover {
 /*FOOTER*/
 .final {
     display: flex;
-    justify-content: center;
-    height: 80px;
+    justify-content: space-around;
+    height: 6rem;
     align-items: center;
 }
 .logo_megaball {
@@ -686,6 +673,7 @@ li .extras:active, li .extras:hover {
     }
     .final {
         padding: 0 1rem 0 1rem;
+        height: 9rem;
     }
 }
 @media (max-width: 500px) {
@@ -693,7 +681,7 @@ li .extras:active, li .extras:hover {
         display: flex;
         flex-direction: column;
         align-content: space-around;
-        height: 9rem;
+        height: 16rem;
 }
 .social2 {
     margin-top: 2rem;
@@ -717,6 +705,14 @@ li .extras:active, li .extras:hover {
     margin:auto 20%;
 }
 
+.mh {
+    margin: 4% 0;
+}
+
+.ph {
+    padding-top: 0.5rem !important;
+}
+
 .pagcursos ul li {
     padding: 1% 0 !important;
 }
@@ -726,10 +722,35 @@ li .extras:active, li .extras:hover {
     display:flex;
     align-items: center;
     justify-content: center;
+    color: black;
 }
 .fondo {
   background-image: url('img/fondo-pag-cursos.png');
   background-size: cover; /* Para cubrir todo el fondo */
   background-position: center; /* Para centrar la imagen */
   background-repeat: no-repeat; /* Para evitar que la imagen se repita */
+}
+
+#Institucional {
+    scroll-margin-top: 10rem;
+}
+
+#Cursos {
+    scroll-margin-top: 10rem;
+}
+
+#Cooperadora {
+    scroll-margin-top: 10rem;
+}
+
+#Contactos {
+    scroll-margin-top: 10rem;
+}
+
+.black {
+    color: black;
+}
+
+.blue {
+    color: --blue;
 }
