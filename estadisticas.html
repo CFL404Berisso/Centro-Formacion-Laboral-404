@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <!-- Importar la librería de Google Charts -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <title>Estadísticas</title>
+</head>
+
+<body class="fondo">
+    <header>
+        <nav id="Home1" class="barra1">
+            <a href="#" class="enlace">
+                <img src="img/logo_cabeza.svg" alt="Logo_nav" class="logo" height="100px" width="auto">
+            </a>
+            <ul class="ul1">
+                <li><a class="f_blanca anim_nav" href="index.html#Inicio"><i
+                            class="icono fa-solid fa-arrow-circle-up"></i><span class="fuera">Inicio</span></a></li>
+                <li><a class="f_blanca anim_nav" href="index.html#Institucional"><i
+                            class="icono fa-solid fa-house"></i><span class="fuera">Institucional</span></a></li>
+                <li><a class="f_blanca anim_nav" href="index.html#Cursos"><i class="icono fa-solid fa-user"></i><span
+                            class="fuera">Cursos</span></a></li>
+                <li><a class="f_blanca anim_nav" href="index.html#Cooperadora"><i
+                            class="icono fa-solid fa-heart"></i><span class="fuera">Cooperadora</span></a></li>
+                <li><a class="f_blanca anim_nav" href="index.html#Contactos"><i
+                            class="icono fa-solid fa-envelope"></i><span class="fuera">Contactos</span></a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="nav_2">
+        <nav class="barra2">
+            <ul class="nav_social">
+                <li><a class="extras" href="http://berisso.gob.ar/">Bsso</a></li>
+                <li><a class="extras" href="https://abc.gob.ar/" target="_blank">Bs As</a></li>
+                <li><a class="extras" href="https://www.argentina.gob.ar/buscar/ministerio%20de%20educacion"
+                        target="_blank">Arg</a></li>
+            </ul>
+            <div class="social">
+                <div><a class="social_hover" class="insta" href="https://www.instagram.com/cfl404berisso"
+                        target="_blank"><i class="fa-brands fa-instagram-square"></i></a></div>
+                <div><a class="social_hover" href="https://www.facebook.com/cfl404berisso/" target="_blank"><i
+                            class="fa-brands fa-facebook-square"></i></a></div>
+                <div><a class="social_hover" href="https://twitter.com/cfl404berisso" target="_blank"><i
+                            class="fa-brands fa-twitter-square"></i></a></div>
+                <div><a class="social_hover" href="https://www.youtube.com/channel/UC6S14E5C0nE2ey8poEq8AZQ/featured"
+                        target="_blank"><i class="fa-brands fa-youtube-square"></i></a></div>
+            </div>
+        </nav>
+    </section>
+    <div class="titulo_seccion pt">
+        <h1 class="estilo_titulos">ESTADÍSTICAS</h1><br>
+    </div>
+    <div class="container_graficos">
+    <!-- Elemento donde se mostrará el gráfico -->
+    <div id="chart_div" style="width: 600px; height: 400px;"></div>
+    <div id="chart_div1" style="width: 600px; height: 400px;"></div>
+    <div id="chart_div2" style="width: 600px; height: 400px;"></div>
+    </div>
+    <script>
+    // Cargar la librería de visualización y especificar la función de dibujo del gráfico
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(dibujarGraficos);
+
+    function dibujarGraficos() {
+       // Grafico 0
+      // Datos para el gráfico de barras
+      var data = google.visualization.arrayToDataTable([
+        ['Año', 'Estudiantes'],
+        ['2014', 83],
+        ['2015', 58],
+        ['2016', 275],
+        ['2017', 80],
+        ['2018', 161],
+        ['2019', 116],
+        ['2020', 127],
+        ['2021', 134],
+        ['2022', 420],
+        ['2023', 1850]
+      ]);
+
+      // Opciones para el gráfico
+      var options = {
+        title: 'Estudiantes',
+        legend: { position: 'none' },
+        chartArea: { width: '60%' },
+        hAxis: {
+          title: 'Año',
+          textStyle: {
+            fontSize: 14
+          },
+          minValue: 0
+        },
+        vAxis: {
+          title: 'Estudiantes',
+          textStyle: {
+            fontSize: 14
+          }
+        },
+        titleTextStyle: {
+          fontSize: 18, // Tamaño de fuente para el título del gráfico
+          bold: true // Opcional: para hacer el título en negrita
+        },
+        animation: {
+          duration: 7000, // Duración de la animación en milisegundos
+          easing: 'in', // Tipo de animación ('in', 'out', 'linear')
+        }
+      };
+
+        // Grafico 1
+       // Datos para el gráfico de barras
+      var data1 = google.visualization.arrayToDataTable([
+          ['Año', 'Subsidios'],
+          ['2014', 0],
+          ['2015', 0],
+          ['2016', 40000],
+          ['2017', 0],
+          ['2018', 231596],
+          ['2019', 235124],
+          ['2020', 235908],
+          ['2021', 353862],
+          ['2022', 3066738],
+          ['2023', 17298000]
+        ]);
+
+        var options1 = {
+          title: 'Subsidios',
+          legend: { position: 'none' },
+          chartArea: { width: '60%' },
+          hAxis: {
+            title: 'Año',
+            textStyle: {
+              fontSize: 14
+            },
+            minValue: 0
+          },
+          vAxis: {
+            title: 'Subsidios',
+            minValue: 0,
+            maxValue: 20000000,
+            ticks: [0, 2000000, 4000000, 6000000, 8000000, 10000000, 12000000, 14000000, 16000000, 18000000, 20000000],
+            format: '0',
+            textStyle: {
+              fontSize: 14
+            }
+          },
+          titleTextStyle: {
+            fontSize: 18,
+            bold: true
+          },
+          animation: {
+            duration: 7000,
+            easing: 'in',
+          },
+        };
+
+        // Grafico 2
+       // Datos para el gráfico de barras
+      var data2 = google.visualization.arrayToDataTable([
+        ['Año', 'Inserción Laboral'],
+        ['2014', 0],
+        ['2015', 4],
+        ['2016', 0],
+        ['2017', 7],
+        ['2018', 2],
+        ['2019', 2],
+        ['2020', 19],
+        ['2021', 9],
+        ['2022', 16],
+        ['2023', 94]
+      ]);
+
+      // Opciones para el gráfico
+      var options2 = {
+        title: 'Inserción Laboral',
+        legend: { position: 'none' },
+        chartArea: { width: '60%' },
+        hAxis: {
+          title: 'Año',
+          textStyle: {
+            fontSize: 14
+          },
+          minValue: 0
+        },
+        vAxis: {
+          title: 'Inserción Laboral',
+          textStyle: {
+            fontSize: 14
+          }
+        },
+        titleTextStyle: {
+          fontSize: 18, // Tamaño de fuente para el título del gráfico
+          bold: true // Opcional: para hacer el título en negrita
+        },
+        animation: {
+          duration: 7000, // Duración de la animación en milisegundos
+          easing: 'in', // Tipo de animación ('in', 'out', 'linear')
+        }
+      };
+
+      // Crear el gráfico de barras y mostrarlo en el elemento 'chart_div'
+      var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+
+      var chart = new google.visualization.ColumnChart(document.getElementById('chart_div1'));
+      chart.draw(data1, options1);
+
+      var chart = new google.visualization.ColumnChart(document.getElementById('chart_div2'));
+      chart.draw(data2, options2);
+
+    }
+  </script>
+</body>
+
+</html>

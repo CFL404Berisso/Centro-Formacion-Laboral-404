@@ -754,3 +754,9 @@ li .extras:active, li .extras:hover {
 .blue {
     color: --blue;
 }
+
+/*GRAFICOS ESTADISTICAS*/
+.container_graficos {
+    display: flex;
+    flex-wrap: wrap;
+}
