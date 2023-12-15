@@ -724,6 +724,14 @@ li .extras:active, li .extras:hover {
     justify-content: center;
     color: black;
 }
+
+.hc {
+    height: 4.5rem;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+}
 .fondo {
   background-image: url('img/fondo-pag-cursos.png');
   background-size: cover; /* Para cubrir todo el fondo */
