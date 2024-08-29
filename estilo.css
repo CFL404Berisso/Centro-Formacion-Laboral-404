@@ -768,3 +768,45 @@ li .extras:active, li .extras:hover {
     display: flex;
     flex-wrap: wrap;
 }
+
+
+   /* Estilos básicos para el formulario */
+   form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1em;
+    background: #f9f9f9;
+    border-radius: 5px;
+}
+
+label {
+    margin-bottom: .5em;
+    color: #333333;
+    display: block;
+}
+
+input, select {
+    border: 1px solid #CCCCCC;
+    padding: .5em;
+    font-size: 1em;
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+input[type="submit"] {
+    background: #007BFF;
+    color: white;
+    border: 0;
+    padding: 1em;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background: #0056b3;
+}
+
+.error {
+    color: red;
+    display: none;
+}
