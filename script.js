@@ -10,7 +10,7 @@ document.getElementById('edad').addEventListener('input', function() {
 });
 
 // Cargar los cursos desde Google Sheets
-fetch('https://script.google.com/macros/s/AKfycbyHsrFVCFlxXSfq29tlbM_0r0r1sKUtX34u1mq-LLGaE30MD34SGmuy4gLKSuvz2NRkAg/exec?cursos=true')
+fetch('https://script.google.com/macros/s/AKfycbw145n0jEdIQj6S05E_6tsL7M5Sua79-ARCQnC4LjCdKGIES-ubIC3ezQfgomOZWd2FMQ/exec?cursos=true')
     .then(response => response.json())
     .then(cursos => {
         const cursoSelect = document.getElementById('curso');
@@ -49,7 +49,7 @@ document.getElementById('inscripcion-form').addEventListener('submit', function(
     };
 
     // Enviar datos a Google Sheets (sin el parámetro cursos=true)
-    fetch('https://script.google.com/macros/s/AKfycbyHsrFVCFlxXSfq29tlbM_0r0r1sKUtX34u1mq-LLGaE30MD34SGmuy4gLKSuvz2NRkAg/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbw145n0jEdIQj6S05E_6tsL7M5Sua79-ARCQnC4LjCdKGIES-ubIC3ezQfgomOZWd2FMQ/exec', {
         method: 'POST',
         body: JSON.stringify(datos),
         headers: {
