@@ -733,7 +733,7 @@ li .extras:active, li .extras:hover {
     color: black;
 }
 .fondo {
-  background-image: url('img/fondo-pag-cursos.png');
+  /* background-image: url('img/fondo-pag-cursos.png'); */
   background-size: cover; /* Para cubrir todo el fondo */
   background-position: center; /* Para centrar la imagen */
   background-repeat: no-repeat; /* Para evitar que la imagen se repita */
