@@ -1,4 +1,4 @@
-const apiUrl = 'https://script.google.com/macros/s/AKfycbyNVS7_2H4giIyHE1OaaeZwMfjB-bGHa5hnaKzezilhRFaGkGSaGZ-m4NLrwnayNcoCEA/exec';
+const apiUrl = 'https://script.google.com/macros/s/AKfycbzJuwQyIRjzK2hG4ftcyoMKgQ_0uG_mFn1vIA96DDMrday78KJ0e8jllkaQM3BfGpJMTw/exec';
 
 // Validación de edad
 document.getElementById('edad').addEventListener('input', function () {
@@ -30,7 +30,7 @@ function obtenerUltimaFilaDelCurso(cursoSeleccionado) {
 }
 
 // Cargar los cursos desde Google Sheets
-fetch(`${apiUrl}?cursos=true`)
+/*fetch(`${apiUrl}?cursos=true`)
     .then(response => response.json())
     .then(cursos => {
         const cursoSelect = document.getElementById('curso');
@@ -39,6 +39,33 @@ fetch(`${apiUrl}?cursos=true`)
             option.value = curso;
             option.text = curso;
             cursoSelect.appendChild(option);
+        });
+    })
+    .catch(error => console.error('Error al cargar los cursos:', error));*/
+
+// Cargar los cursos desde Google Sheets
+fetch(`${apiUrl}?cursos=true`)
+    .then(response => response.json())
+    .then(cursos => {
+        const cursoSelect = document.getElementById('curso');
+        const descripcionParrafo = document.getElementById('descripcion-curso'); // Selecciona el <p> donde se mostrará la descripción
+
+        // Cargar los cursos en el select
+        cursos.forEach(function (curso) {
+            const option = document.createElement('option');
+            option.value = curso.nombre;
+            option.text = curso.nombre;
+            option.setAttribute('data-descripcion', curso.descripcion || ''); // Guardamos la descripción en un atributo data-descripcion
+            cursoSelect.appendChild(option);
+        });
+
+        // Actualizar la descripción cuando cambie el curso
+        cursoSelect.addEventListener('change', function () {
+            const cursoSeleccionado = cursoSelect.options[cursoSelect.selectedIndex];
+            const descripcion = cursoSeleccionado.getAttribute('data-descripcion');
+
+            // Actualiza el contenido del párrafo con la descripción
+            descripcionParrafo.innerHTML = descripcion ? `Descripción del curso:<br> ${descripcion}` : 'No hay descripción disponible.';
         });
     })
     .catch(error => console.error('Error al cargar los cursos:', error));
@@ -87,13 +114,15 @@ document.getElementById('inscripcion-form').addEventListener('submit', function 
                     },
                     mode: 'no-cors'
                 })
-                .then(response => {
-                    console.log("Datos enviados");
-                    alert("Solicitud confirmada!");
-                })
-                .catch(error => {
-                    console.error('Error al enviar los datos:', error);
-                });
+                    .then(response => {
+                        console.log("Datos enviados");
+                        alert("Solicitud confirmada! Tene en cuenta que en caso de haber quedado seleccionado/a como cursante dentro de los 30 cupos disponibles, recibirás en los próximos días un WhatsApp con toda la información necesaria para finalizar la inscripción de manera presencial.");
+                        // Reiniciar el formulario después de la confirmación
+                        window.location.reload();
+                    })
+                    .catch(error => {
+                        console.error('Error al enviar los datos:', error);
+                    });
             } catch (error) {
                 console.error(error);
                 alert('Hubo un problema al enviar tu inscripción. Por favor, intenta nuevamente.');
@@ -103,3 +132,95 @@ document.getElementById('inscripcion-form').addEventListener('submit', function 
         }
     });
 });
+
+
+// Obtener todos los campos y los spans de error
+const inputs = document.querySelectorAll('#inscripcion-form input');
+const selects = document.querySelectorAll('#inscripcion-form select');
+const errorMessages = {
+    email: 'Por favor, ingresa un correo electrónico válido.',
+    apellido: 'El apellido debe tener entre 2 y 50 caracteres y solo contener letras.',
+    nombre: 'El nombre debe tener entre 2 y 50 caracteres y solo contener letras.',
+    dni: 'El DNI debe tener entre 7 y 8 dígitos numéricos.',
+    'fecha-nacimiento': 'Por favor, ingresa una fecha de nacimiento válida.',
+    edad: 'Por favor, ingresa una edad entre 16 y 99 años.',
+    direccion: 'La dirección debe tener entre 5 y 100 caracteres.',
+    ciudad: 'La ciudad debe tener entre 2 y 50 caracteres y solo contener letras.',
+    celular: 'Por favor, ingresa un número de teléfono válido (entre 7 y 15 dígitos).',
+    cuil: 'El CUIL debe tener 11 dígitos.',
+    estudios: 'Este campo debe tener entre 2 y 50 caracteres.',
+    alumno: 'Por favor, selecciona una opción.',
+    conocimientos: 'Por favor, selecciona si tienes conocimientos.',
+    trabaja: 'Por favor, selecciona si trabajas.',
+    'plan-social': 'Por favor, selecciona si posees plan social.',
+    conociste: 'Por favor, selecciona cómo nos conociste.'
+};
+
+// Función para validar los campos de input
+function validarCampo(input) {
+    const errorSpan = document.getElementById(`${input.id}-error`);
+    if (!input.checkValidity()) {
+        errorSpan.textContent = errorMessages[input.id];
+        errorSpan.style.display = 'block';
+    } else {
+        errorSpan.textContent = '';
+        errorSpan.style.display = 'none';
+    }
+}
+
+// Función para validar los campos de select
+function validarSelect(select) {
+    const errorSpan = document.getElementById(`${select.id}-error`);
+    if (select.value === "") {
+        errorSpan.textContent = errorMessages[select.id];
+        errorSpan.style.display = 'block';
+    } else {
+        errorSpan.textContent = '';
+        errorSpan.style.display = 'none';
+    }
+}
+
+// Mostrar u ocultar campos adicionales según la selección
+const conocimientosSelect = document.getElementById('conocimientos');
+const conocimientosEspecifique = document.getElementById('conocimientos-especifique-container');
+const planSocialSelect = document.getElementById('plan-social');
+const planSocialEspecifique = document.getElementById('plan-social-especifique-container');
+
+// Manejar la lógica para mostrar campos adicionales
+conocimientosSelect.addEventListener('change', function () {
+    if (this.value === 'sí') {
+        conocimientosEspecifique.style.display = 'block';
+    } else {
+        conocimientosEspecifique.style.display = 'none';
+    }
+});
+
+planSocialSelect.addEventListener('change', function () {
+    if (this.value === 'sí') {
+        planSocialEspecifique.style.display = 'block';
+    } else {
+        planSocialEspecifique.style.display = 'none';
+    }
+});
+
+// Validar cada campo input al perder el foco
+inputs.forEach(input => {
+    input.addEventListener('input', () => validarCampo(input));
+});
+
+// Validar cada campo select al cambiar su valor
+selects.forEach(select => {
+    select.addEventListener('change', () => validarSelect(select));
+});
+
+// Validar todos los campos al enviar el formulario
+document.getElementById('inscripcion-form').addEventListener('submit', function (e) {
+    inputs.forEach(input => validarCampo(input));
+    selects.forEach(select => validarSelect(select));
+
+    // Verificar la validez general del formulario antes de enviarlo
+    if (!this.checkValidity()) {
+        e.preventDefault();  // Evitar el envío del formulario si hay errores
+    }
+});
+

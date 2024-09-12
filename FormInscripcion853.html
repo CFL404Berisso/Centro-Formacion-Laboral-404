@@ -18,11 +18,11 @@
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WDD4CF7NED"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-  gtag('config', 'G-WDD4CF7NED');
+    gtag('config', 'G-WDD4CF7NED');
 </script>
 
 <body class="fondo">
@@ -69,87 +69,152 @@
         <h1 class="estilo_titulos">FORMULARIO DE INSCRIPCIÓN</h1><br>
     </div>
     <div class="pagcursos">
-        <h2><strong>Descripción del perfil profesional</strong></h2><br><br>
+        <h2><strong>Datos Generales</strong></h2><br><br>
         <p class="estilo_h2 ma">
-            El/la Modelador/a 3D con orientación a Impresión 3D estará capacitado para:<br>
-           </p> <br><br>
+            Hola<br>
+        </p> <br><br>
 
-           <form id="inscripcion-form">
+        <form id="inscripcion-form" style="font-size: 1.3rem;">
 
-            <label for="curso">Curso:</label>
+            <label for="curso">Seleccione un Curso:</label>
             <select id="curso" name="curso" required>
                 <!-- Los cursos se cargarán dinámicamente desde Google Sheets -->
             </select><br>
-            
+
+            <p id="descripcion-curso"></p><br>
+
+            <!-- Email -->
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-    
+            <input type="email" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                title="Ingresa un correo electrónico válido.">
+            <span class="error" id="email-error"></span><br>
+
+            <!-- Apellido -->
             <label for="apellido">Apellido:</label>
-            <input type="text" id="apellido" name="apellido" required>
-    
+            <input type="text" id="apellido" name="apellido" required pattern="[A-Za-zÀ-ÿ ]{2,50}"
+                title="El apellido debe tener entre 2 y 50 caracteres y solo puede contener letras.">
+            <span class="error" id="apellido-error"></span><br>
+
+            <!-- Nombre -->
             <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
-    
+            <input type="text" id="nombre" name="nombre" required pattern="[A-Za-zÀ-ÿ ]{2,50}"
+                title="El nombre debe tener entre 2 y 50 caracteres y solo puede contener letras.">
+            <span class="error" id="nombre-error"></span><br>
+
+            <!-- DNI -->
             <label for="dni">DNI:</label>
-            <input type="text" id="dni" name="dni" required>
-    
+            <input type="text" id="dni" name="dni" required pattern="\d{7,8}"
+                title="El DNI debe tener 7 u 8 dígitos numéricos.">
+            <span class="error" id="dni-error"></span><br>
+
+            <!-- Fecha de Nacimiento -->
             <label for="fecha-nacimiento">Fecha de Nacimiento:</label>
-            <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" required>
-    
+            <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" required min="1900-01-01" max="2009-02-28">
+            <span class="error" id="fecha-nacimiento-error"></span><br>
+
+            <!-- Edad -->
             <label for="edad">Edad:</label>
             <input type="number" id="edad" name="edad" min="16" max="99" required>
-            <span class="error" id="edad-error">Por favor, ingresa una edad válida entre 16 y 99 años.</span>
-    
+            <span class="error" id="edad-error"></span><br>
+
+            <!-- Dirección -->
             <label for="direccion">Dirección:</label>
-            <input type="text" id="direccion" name="direccion" required>
-    
+            <input type="text" id="direccion" name="direccion" required minlength="5" maxlength="100"
+                title="La dirección debe tener entre 5 y 100 caracteres.">
+            <span class="error" id="direccion-error"></span><br>
+
+            <!-- Ciudad -->
             <label for="ciudad">Ciudad:</label>
-            <input type="text" id="ciudad" name="ciudad" required>
-    
+            <input type="text" id="ciudad" name="ciudad" required pattern="[A-Za-zÀ-ÿ ]{2,50}"
+                title="La ciudad debe tener entre 2 y 50 caracteres y solo puede contener letras.">
+            <span class="error" id="ciudad-error"></span><br>
+
+            <!-- Celular -->
             <label for="celular">Celular:</label>
-            <input type="tel" id="celular" name="celular" required>
-    
+            <input type="tel" id="celular" name="celular" required pattern="^\+?[\d\s]{7,15}$"
+                title="Ingresa un número de teléfono válido (entre 7 y 15 dígitos).">
+            <span class="error" id="celular-error"></span><br>
+
+            <!-- CUIL -->
             <label for="cuil">CUIL:</label>
-            <input type="text" id="cuil" name="cuil" required>
-    
+            <input type="text" id="cuil" name="cuil" required pattern="\d{11}" title="El CUIL debe tener 11 dígitos.">
+            <span class="error" id="cuil-error"></span><br>
+
+            <!-- Últimos estudios finalizados -->
             <label for="estudios">Últimos estudios finalizados:</label>
-            <input type="text" id="estudios" name="estudios" required>
-    
+            <input type="text" id="estudios" name="estudios" required minlength="2" maxlength="50"
+                title="Este campo debe tener entre 2 y 50 caracteres.">
+            <span class="error" id="estudios-error"></span><br>
+            <!-- ¿Fuiste o sos alumno del CFL? -->
             <label for="alumno">¿Fuiste o sos alumno del CFL?:</label>
             <select id="alumno" name="alumno" required>
+                <option value="">Seleccione</option>
                 <option value="sí">Sí</option>
                 <option value="no">No</option>
             </select>
-    
+            <span class="error" id="alumno-error"></span><br>
+
+            <!-- ¿Tienes conocimientos acerca del curso? -->
             <label for="conocimientos">¿Tienes conocimientos acerca del curso al que te inscribes?:</label>
             <select id="conocimientos" name="conocimientos" required>
+                <option value="">Seleccione</option>
                 <option value="sí">Sí</option>
                 <option value="no">No</option>
             </select>
-    
+            <span class="error" id="conocimientos-error"></span><br>
+
+            <!-- Campo adicional para especificar los conocimientos -->
+            <div id="conocimientos-especifique-container" style="display: none;">
+                <label for="conocimientos-especifique">Especifique:</label>
+                <input type="text" id="conocimientos-especifique" name="conocimientos-especifique">
+            </div>
+
+            <!-- ¿Trabajas? -->
             <label for="trabaja">¿Trabajas?:</label>
             <select id="trabaja" name="trabaja" required>
+                <option value="">Seleccione</option>
                 <option value="sí">Sí</option>
                 <option value="no">No</option>
             </select>
-    
+            <span class="error" id="trabaja-error"></span><br>
+
+            <!-- ¿Posees plan social? -->
             <label for="plan-social">¿Posees plan social?:</label>
             <select id="plan-social" name="plan-social" required>
+                <option value="">Seleccione</option>
                 <option value="sí">Sí</option>
                 <option value="no">No</option>
             </select>
-    
+            <span class="error" id="plan-social-error"></span><br>
+
+            <!-- Campo adicional para especificar el plan social -->
+            <div id="plan-social-especifique-container" style="display: none;">
+                <label for="plan-social-especifique">Especifique:</label>
+                <input type="text" id="plan-social-especifique" name="plan-social-especifique">
+            </div>
+
+            <!-- ¿Cómo nos conociste? -->
             <label for="conociste">¿Cómo nos conociste?:</label>
-            <input type="text" id="conociste" name="conociste" required>
-    
-    
+            <select id="conociste" name="conociste" required>
+                <option value="">Seleccione</option>
+                <option value="facebook">Facebook</option>
+                <option value="instagram">Instagram</option>
+                <option value="municipalidad">Municipalidad</option>
+                <option value="radio">Radio</option>
+                <option value="afiche">Afiche en vía pública</option>
+                <option value="volantes">Volantes</option>
+                <option value="otras">Otras</option>
+            </select>
+            <span class="error" id="conociste-error"></span><br>
+
+
             <input type="submit" value="Inscribirse">
         </form>
-       
+
         <br><br>
     </div>
 
-    <script src="script.js"></script>   
+    <script src="script.js"></script>
 </body>
 
 </html>
