@@ -1,4 +1,4 @@
-const apiUrl = 'https://script.google.com/macros/s/AKfycbzJuwQyIRjzK2hG4ftcyoMKgQ_0uG_mFn1vIA96DDMrday78KJ0e8jllkaQM3BfGpJMTw/exec';
+const apiUrl = 'https://script.google.com/macros/s/AKfycbxKtNcBbWpmjNGTtJaqo0cemK0cXLmIt7q6igG-dOfEYgQVhjK9_KAtzQXF0-qqB0BDFw/exec';
 
 // Validación de edad
 document.getElementById('edad').addEventListener('input', function () {
@@ -94,11 +94,13 @@ document.getElementById('inscripcion-form').addEventListener('submit', function 
                 estudios: document.getElementById('estudios').value,
                 alumno: document.getElementById('alumno').value,
                 conocimientos: document.getElementById('conocimientos').value,
+                conocimientosEspecifique: document.getElementById('conocimientos-especifique').value || '', // Solo si está visible 
                 trabaja: document.getElementById('trabaja').value,
                 planSocial: document.getElementById('plan-social').value,
+                planSocialEspecifique: document.getElementById('plan-social-especifique').value || '', // Solo si está visible
                 conociste: document.getElementById('conociste').value,
                 curso: cursoSeleccionado,
-                numeroInscripcion: parseInt(ultimaFila) + 1 // Agregar el número de inscripción
+                numeroInscripcion: parseInt(ultimaFila)  // Agregar el número de inscripción
             };
 
             // Mostrar el número de inscripción antes de enviar
