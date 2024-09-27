@@ -71,9 +71,9 @@
     <div class="pagcursos">
         <h2><strong>Datos Generales</strong></h2><br><br>
         <p class="estilo_h2 ma">
-            Para anotarse en los cursos deberá seleccionar un curso del menu desplegable y completar todos sus datos personales. 
-            Una vez completo hará click en inscribirse y la pagina le asignará un numero de inscripto. Debe aceptar y luego aparecerá otro mensaje de solicitud confirmada.<br><br>
-            Tenga en cuenta que cada curso cuenta con un cupo de 30 lugares disponibles.
+            Para poder inscribirte deberás seleccionar un curso del menu desplegable y completar todos tus datos personales. 
+            Una vez completo presiona en inscribirse y la pagina te asignará un numero de inscripto. Debes aceptar y luego aparecerá otro mensaje de solicitud confirmada.<br><br>
+            Tene en cuenta que el cupo máximo disponible es de 30 personas por curso.
         </p> <br><br>
 
         <form id="inscripcion-form" style="font-size: 1.3rem;">
@@ -110,13 +110,13 @@
             <span class="error" id="dni-error"></span><br>
 
             <!-- Fecha de Nacimiento -->
-            <label for="fecha-nacimiento">Fecha de Nacimiento:</label>
-            <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" required min="1900-01-01" max="2009-02-28">
-            <span class="error" id="fecha-nacimiento-error"></span><br>
+            <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+            <input type="date" id="fechaNacimiento" name="fechaNacimiento" required min="1900-01-01" max="2009-02-28">
+            <span class="error" id="fechaNacimiento-error"></span><br>
 
             <!-- Edad -->
             <label for="edad">Edad:</label>
-            <input type="number" id="edad" name="edad" min="16" max="99" required>
+            <input type="number" id="edad" name="edad" min="16" max="99" readonly>
             <span class="error" id="edad-error"></span><br>
 
             <!-- Dirección -->
@@ -144,9 +144,14 @@
 
             <!-- Últimos estudios finalizados -->
             <label for="estudios">Últimos estudios finalizados:</label>
-            <input type="text" id="estudios" name="estudios" required minlength="2" maxlength="50"
-                title="Este campo debe tener entre 2 y 50 caracteres.">
-            <span class="error" id="estudios-error"></span><br>
+            <select id="estudios" name="estudios" required>
+                <option value="">Seleccione</option>
+                <option value="Universitario">Universitario</option>
+                <option value="Terciario">Terciario</option>
+                <option value="Secundario">Secundario</option>
+                <option value="Primario">Primario</option>
+            </select>
+            <span class="error" id="alumno-error"></span><br>
             <!-- ¿Fuiste o sos alumno del CFL? -->
             <label for="alumno">¿Fuiste o sos alumno del CFL?:</label>
             <select id="alumno" name="alumno" required>
