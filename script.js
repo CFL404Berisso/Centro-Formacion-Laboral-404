@@ -1,10 +1,37 @@
-const apiUrl = 'https://script.google.com/macros/s/AKfycbxKtNcBbWpmjNGTtJaqo0cemK0cXLmIt7q6igG-dOfEYgQVhjK9_KAtzQXF0-qqB0BDFw/exec';
+const apiUrl = 'https://script.google.com/macros/s/AKfycbwNBvKVwv65HgyovAU0UXplav4cORlyhILqZw9o0oL2NJx_e1A3s4bCISXDSr9vopAPfQ/exec';
+
+// Seleccionar los elementos del DOM
+const fechaNacimientoInput = document.getElementById('fechaNacimiento');
+const edadInput = document.getElementById('edad');
+
+// Función para calcular la edad
+function calcularEdad(fechaNacimiento) {
+    const hoy = new Date();
+    const nacimiento = new Date(fechaNacimiento);
+    let edad = hoy.getFullYear() - nacimiento.getFullYear();
+    const mes = hoy.getMonth() - nacimiento.getMonth();
+
+    // Ajustar la edad si el cumpleaños no ha ocurrido este año
+    if (mes < 0 || (mes === 0 && hoy.getDate() < nacimiento.getDate())) {
+        edad--;
+    }
+    return edad;
+}
+
+// Evento para calcular la edad automáticamente al cambiar la fecha de nacimiento
+fechaNacimientoInput.addEventListener('change', function () {
+    const fechaNacimiento = fechaNacimientoInput.value;
+    if (fechaNacimiento) {
+        const edad = calcularEdad(fechaNacimiento);
+        edadInput.value = edad;
+    }
+});
 
 // Validación de edad
 document.getElementById('edad').addEventListener('input', function () {
     const edad = parseInt(this.value);
     const errorSpan = document.getElementById('edad-error');
-    if (edad < 16 || edad > 99) {
+    if (edad < 15 || edad > 99) {
         errorSpan.style.display = 'block';
     } else {
         errorSpan.style.display = 'none';
@@ -85,7 +112,7 @@ document.getElementById('inscripcion-form').addEventListener('submit', function 
                 apellido: document.getElementById('apellido').value,
                 nombre: document.getElementById('nombre').value,
                 dni: document.getElementById('dni').value,
-                fechaNacimiento: document.getElementById('fecha-nacimiento').value,
+                fechaNacimiento: document.getElementById('fechaNacimiento').value,
                 edad: document.getElementById('edad').value,
                 direccion: document.getElementById('direccion').value,
                 ciudad: document.getElementById('ciudad').value,
@@ -144,7 +171,7 @@ const errorMessages = {
     apellido: 'El apellido debe tener entre 2 y 50 caracteres y solo contener letras.',
     nombre: 'El nombre debe tener entre 2 y 50 caracteres y solo contener letras.',
     dni: 'El DNI debe tener entre 7 y 8 dígitos numéricos.',
-    'fecha-nacimiento': 'Por favor, ingresa una fecha de nacimiento válida.',
+    fechaNacimiento: 'Si usted es menor de 16 años no puede inscribirse. Por favor, ingrese una fecha válida.',
     edad: 'Por favor, ingresa una edad entre 16 y 99 años.',
     direccion: 'La dirección debe tener entre 5 y 100 caracteres.',
     ciudad: 'La ciudad debe tener entre 2 y 50 caracteres y solo contener letras.',
