@@ -145,7 +145,7 @@ document.getElementById('inscripcion-form').addEventListener('submit', function 
                 })
                     .then(response => {
                         console.log("Datos enviados");
-                        alert("Solicitud confirmada! Tene en cuenta que en caso de haber quedado seleccionado/a como cursante dentro de los 30 cupos disponibles, recibirás en los próximos días un WhatsApp con toda la información necesaria para finalizar la inscripción de manera presencial.");
+                        alert("Solicitud confirmada!");
                         // Reiniciar el formulario después de la confirmación
                         window.location.reload();
                     })
