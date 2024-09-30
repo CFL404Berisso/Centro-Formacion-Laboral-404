@@ -732,6 +732,11 @@ li .extras:active, li .extras:hover {
     justify-content: center;
     color: black;
 }
+
+.interlineado {
+    line-height: 1.5rem ; /* Ajusta el valor según tus necesidades */
+}
+
 .fondo {
   /*background-image: url('img/fondo-pag-cursos.png'); */
   background-position: bottom right; 
