@@ -171,7 +171,7 @@ li .extras:active, li .extras:hover {
 }*/
 /*HERO*/
 .hero {
-    background: url(img/Placa\ grande_Mesa\ de\ trabajo\ 1\ copia.jpg) no-repeat;
+    background: url(img/Fondo.jpg) no-repeat;
     background-size: cover;
     background-position: center center;
     height: calc(110vh - 80px); 
@@ -585,7 +585,7 @@ li .extras:active, li .extras:hover {
         margin-right: 0;
     }
     .hero {
-        background: url(img/Hero_chica1.jpg) no-repeat;
+        background: url(img/Fondo2.jpg) no-repeat;
         background-size: cover;
         height: calc(100vh);
         width: auto;
@@ -642,7 +642,7 @@ li .extras:active, li .extras:hover {
         width: 140px;
     }
     .hero {
-        background: url(img/Placas\ hero-03.jpg) no-repeat;
+        background: url(img/Fondo3.jpg) no-repeat;
         background-size: cover;
         height: calc(100vh);
         width: auto;
