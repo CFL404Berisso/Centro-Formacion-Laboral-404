@@ -145,7 +145,7 @@ document.getElementById('inscripcion-form').addEventListener('submit', function 
                 })
                     .then(response => {
                         console.log("Datos enviados");
-                        alert('Su número de inscripción es: ' + datos.numeroInscripcion + "<br>Recorda que te llegará un mail con los pasos a seguir.(Se envía al mail declarado en el formulario).");
+                        alert('Su número de inscripción es: ' + datos.numeroInscripcion + " Recorda que te llegará un mail con los pasos a seguir.(Se envía al mail declarado en el formulario).");
                         // Reiniciar el formulario después de la confirmación
                         window.location.reload();
                     })
