@@ -1,4 +1,4 @@
-const apiUrl = 'https://script.google.com/macros/s/AKfycbznNbnAN2z5ZCswDVGqgQIMEQJquC3mw6iBZ5pV4Mnfkq9htZuE7DrGA_cSdlYdR6IvOA/exec';
+const apiUrl = 'https://script.google.com/macros/s/AKfycbz0T5WujygfeZOsiCYsdGKiol1Db28LtTnMc23ySj89KAac1tahmTSW6yUO0Wnb3CO6sg/exec';
 
 // Seleccionar los elementos del DOM
 const fechaNacimientoInput = document.getElementById('fechaNacimiento');
@@ -145,7 +145,7 @@ document.getElementById('inscripcion-form').addEventListener('submit', function 
                 })
                     .then(response => {
                         console.log("Datos enviados");
-                        alert("Solicitud confirmada!");
+                        alert('Su número de inscripción es: ' + datos.numeroInscripcion + "<br>Recorda que te llegará un mail con los pasos a seguir.(Se envía al mail declarado en el formulario).");
                         // Reiniciar el formulario después de la confirmación
                         window.location.reload();
                     })
