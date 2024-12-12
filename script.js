@@ -1,4 +1,4 @@
-const apiUrl = 'https://script.google.com/macros/s/AKfycbz0T5WujygfeZOsiCYsdGKiol1Db28LtTnMc23ySj89KAac1tahmTSW6yUO0Wnb3CO6sg/exec';
+const apiUrl = 'https://script.google.com/macros/s/AKfycbzE_nE-mTW8r3yFKSxR5AQvhSKlbhcSctQ7bAfMMdNvQ23OHYhFNDuSlV28-yTv461EuA/exec';
 
 // Seleccionar los elementos del DOM
 const fechaNacimientoInput = document.getElementById('fechaNacimiento');
