@@ -1,4 +1,4 @@
-const apiUrl = 'https://script.google.com/macros/s/AKfycbzE_nE-mTW8r3yFKSxR5AQvhSKlbhcSctQ7bAfMMdNvQ23OHYhFNDuSlV28-yTv461EuA/exec';
+const apiUrl = 'https://script.google.com/macros/s/AKfycbxxiAB5EfGL9g66ZoJ_5Gzapojo73JUZ_JYmH6obKXf8REqtfOO8oFoWnLafDKf991Fiw/exec';
 
 // Seleccionar los elementos del DOM
 const fechaNacimientoInput = document.getElementById('fechaNacimiento');
@@ -131,7 +131,7 @@ document.getElementById('inscripcion-form').addEventListener('submit', function 
             };
 
             // Mostrar el número de inscripción antes de enviar
-            alert('Su número de inscripción será: ' + datos.numeroInscripcion + "¿confirma su solicitud?");
+            alert('Su número de inscripción será: ' + datos.numeroInscripcion + ". ¿confirma su solicitud?");
 
             // Enviar datos a Google Sheets (sin el parámetro cursos=true)
             try {
