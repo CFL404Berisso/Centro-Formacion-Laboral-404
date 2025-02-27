@@ -180,7 +180,7 @@ const errorMessages = {
     edad: 'Por favor, ingresa una edad entre 16 y 99 años.',
     direccion: 'La dirección debe tener entre 5 y 100 caracteres.',
     ciudad: 'La ciudad debe tener entre 2 y 50 caracteres y solo contener letras.',
-    celular: 'Por favor, ingresa un número de teléfono válido (entre 7 y 15 dígitos).',
+    celular: 'Por favor, ingresa un número de teléfono válido (entre 10 y 15 dígitos).',
     cuil: 'El CUIL debe tener 11 dígitos.',
     estudios: 'Este campo debe tener entre 2 y 50 caracteres.',
     alumno: 'Por favor, selecciona una opción.',
