@@ -1,4 +1,4 @@
-const apiUrl = 'https://script.google.com/macros/s/AKfycbwfZNdOC4Z4lEpqiMQWBL1DhgUak53Na--LGxkM8-ehjPHCZlhYgKk8eVHmYKowr-j8jg/exec';
+const apiUrl = 'https://script.google.com/macros/s/AKfycbzSeWAsW-_RnkCskcYBm5RntPVWGArRG2QXZZgcW6VXrmjeI29Qe5oshwqhaEXTXlbSUA/exec';
 
 // Seleccionar los elementos del DOM
 const fechaNacimientoInput = document.getElementById('fechaNacimiento');
@@ -135,22 +135,27 @@ document.getElementById('inscripcion-form').addEventListener('submit', function 
 
             // Enviar datos a Google Sheets (sin el parámetro cursos=true)
             try {
-                fetch(apiUrl, {
-                    method: 'POST',
+            
+            
+                 fetch(apiUrl, {
+                     method: 'POST',
                     body: JSON.stringify(datos),
                     headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    mode: 'no-cors'
-                })
+                         'Content-Type': 'application/json'
+                   },
+                     mode: 'no-cors'
+               })
                     .then(response => {
-                        console.log("Datos enviados");
-                        alert('Su número de inscripción es: ' + datos.numeroInscripcion + " Recorda que te llegará un mail con los pasos a seguir.(Se envía al mail declarado en el formulario).");
-                        // Reiniciar el formulario después de la confirmación
-                        window.location.reload();
-                    })
+                         console.log("Datos enviados");
+                         console.log(response);
+                        
+
+                     alert('Su número de inscripción es: ' + datos.numeroInscripcion + " Recorda que te llegará un mail con los pasos a seguir.(Se envía al mail declarado en el formulario).");
+                      // Reiniciar el formulario después de la confirmación
+                         window.location.reload();
+                     })
                     .catch(error => {
-                        console.error('Error al enviar los datos:', error);
+                         console.error('Error al enviar los datos:', error);
                     });
             } catch (error) {
                 console.error(error);
