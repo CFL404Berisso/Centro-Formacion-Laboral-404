@@ -398,8 +398,8 @@ li .extras:active, li .extras:hover {
 .slider ul {
     display: flex;
     padding: 0;
-    width: 600%;
-    animation: marcha 35s infinite alternate;
+    width: 700%;
+    animation: marcha 40s infinite alternate;
 }
 .slider li {
     width: 100%;
@@ -408,20 +408,30 @@ li .extras:active, li .extras:hover {
 .slider img {
     width: 100%;
 }
+
 @keyframes marcha {
-    0%{margin-left: 0;}
-    12%{margin-left: 0;}
-    18%{margin-left: -100%;}
-    30%{margin-left: -100%;}
-    36%{margin-left: -200%;}
-    48%{margin-left: -200%;}
-    54%{margin-left: -300%;}
-    66%{margin-left: -300%;}
-    72%{margin-left: -400%;}
-    84%{margin-left: -400%;}
-    90%{margin-left: -500%;}
-    100%{margin-left: -500%;}
+    0% { margin-left: 0; }
+    10% { margin-left: 0; }
+    
+    15% { margin-left: -100%; }
+    25% { margin-left: -100%; }
+    
+    30% { margin-left: -200%; }
+    40% { margin-left: -200%; }
+    
+    45% { margin-left: -300%; }
+    55% { margin-left: -300%; }
+    
+    60% { margin-left: -400%; }
+    70% { margin-left: -400%; }
+    
+    75% { margin-left: -500%; }
+    85% { margin-left: -500%; }
+    
+    90% { margin-left: -600%; }
+    100% { margin-left: -600%; }
 }
+
 /*CONTACTOS*/
 .abajo {
     width: 100%;
