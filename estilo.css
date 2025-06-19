@@ -842,3 +842,15 @@ input[type="submit"]:hover {
     text-align: center;
     line-height: 1.5;
 }
+
+
+.mensaje {
+    display: flex;
+    align-items: center;
+    height: 5rem; /* Ajusta según el espacio que necesites */
+    margin: 2rem auto;
+    color: var(--blue); /* Cambia según el esquema de colores de tu página */
+    font-size: 2.5rem;
+    border: 2px solid var(--red);
+    padding: 1rem;
+}
