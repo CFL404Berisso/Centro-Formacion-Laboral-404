@@ -317,7 +317,7 @@ li .extras:active, li .extras:hover {
     font-weight: 700;
     letter-spacing: 1px;
     font-size: 1.4rem;
-    padding: 0.5rem 0 0.5rem 0.3rem;
+    padding: 0rem 0 0.5rem 0.3rem;
     color: var(--ligth-blue);
     display: inline-block;
     display: flex;
