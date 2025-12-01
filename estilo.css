@@ -830,7 +830,7 @@ input[type="submit"]:hover {
 .proximamente {
     display: flex;
     align-items: center;
-    height: 300px; /* Ajusta según el espacio que necesites */
+    height: 1rem; /* Ajusta según el espacio que necesites */
     margin: 10rem auto;
 }
 
