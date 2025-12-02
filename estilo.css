@@ -635,6 +635,34 @@ li .extras:active, li .extras:hover {
         margin: 1rem 0 0 0;
     }
 }
+
+.texto_proximamente {
+    font-family: 'Arial', sans-serif;
+    font-size: 2.5rem; /* Ajusta el tamaño del texto */
+    color: var(--ligth-blue); /* Cambia según el esquema de colores de tu página */
+    text-align: center;
+    line-height: 1.5;
+}
+
+/* Estilos de Texto Proximamente cursos 2025 */
+.proximamente {
+    display: flex;
+    align-items: center;
+    height: 1rem; /* Ajusta según el espacio que necesites */
+    margin: 10rem auto;
+}
+
+.mensaje {
+    display: flex;
+    align-items: center;
+    height: 5rem; /* Ajusta según el espacio que necesites */
+    margin: 2rem auto;
+    color: var(--blue); /* Cambia según el esquema de colores de tu página */
+    font-size: 2.5rem;
+    border: 2px solid var(--red);
+    padding: 1rem;
+}
+
 @media (max-width: 650px) {
     /*.barra2 {
         display: flex;
@@ -691,6 +719,13 @@ li .extras:active, li .extras:hover {
         flex-direction: column;
         align-content: space-around;
         height: 16rem;
+}
+.texto_proximamente {
+    font-size: 1.5rem; /* Ajusta el tamaño del texto */ /* Ajusta el tamaño del texto */
+}
+.proximamente {
+    height: 0.2rem; /* Ajusta según el espacio que necesites */
+    margin: 6rem auto;
 }
 .social2 {
     margin-top: 2rem;
@@ -826,30 +861,3 @@ input[type="submit"]:hover {
     display: none;
 }
 
-/* Estilos de Texto Proximamente cursos 2025 */
-.proximamente {
-    display: flex;
-    align-items: center;
-    height: 1rem; /* Ajusta según el espacio que necesites */
-    margin: 10rem auto;
-}
-
-.texto_proximamente {
-    font-family: 'Arial', sans-serif;
-    font-size: 2.5rem; /* Ajusta el tamaño del texto */
-    color: var(--ligth-blue); /* Cambia según el esquema de colores de tu página */
-    text-align: center;
-    line-height: 1.5;
-}
-
-
-.mensaje {
-    display: flex;
-    align-items: center;
-    height: 5rem; /* Ajusta según el espacio que necesites */
-    margin: 2rem auto;
-    color: var(--blue); /* Cambia según el esquema de colores de tu página */
-    font-size: 2.5rem;
-    border: 2px solid var(--red);
-    padding: 1rem;
-}
