@@ -268,8 +268,13 @@ li .extras:active, li .extras:hover {
 .mas_info a {
     color: var(--white);
 }
-.mas_info:hover {
+.mas_info:hover:not(:disabled) {
     background-color: var(--ligth-blue);
+}
+.mas_info:disabled {
+    background-color: #6c757d !important;
+    cursor: not-allowed !important;
+    opacity: 0.6;
 }
 /*CURSOS*/
 .container_cursos {
@@ -754,6 +759,7 @@ li .extras:active, li .extras:hover {
 /* Estilos de Texto Proximamente cursos 2025 */
 .proximamente {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
@@ -761,6 +767,70 @@ li .extras:active, li .extras:hover {
     margin: 3rem auto 2rem auto;
     padding: 0 2rem;
     grid-column: 1 / -1;
+}
+
+/* Estilos del contador regresivo */
+.countdown-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--ligth-blue) 100%);
+    padding: 1rem 0.8rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    min-width: 80px;
+    transition: transform 0.3s ease;
+}
+
+.countdown-item:hover {
+    transform: translateY(-5px);
+}
+
+.countdown-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.countdown-label {
+    font-size: 1rem;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+    opacity: 0.9;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+@media (max-width: 768px) {
+    .countdown-container {
+        gap: 1rem;
+    }
+    
+    .countdown-item {
+        min-width: 70px;
+        padding: 1rem 0.8rem;
+    }
+    
+    .countdown-number {
+        font-size: 2rem;
+    }
+    
+    .countdown-label {
+        font-size: 0.85rem;
+    }
 }
 
 .mensaje {

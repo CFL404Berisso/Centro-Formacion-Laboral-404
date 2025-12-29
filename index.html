@@ -132,7 +132,29 @@
         <section class="container_cursos">
 
             <div class="proximamente">
-                <h2 class="texto_proximamente">Las inscripciones serán a partir del 1ro de Febrero del 2026 a las 00:00hs por esta pagina web. </h2></div>
+                <h2 class="texto_proximamente">Las inscripciones serán a partir del 1ro de Febrero del 2026 a las 00:00hs por esta pagina web.</h2>
+                <div id="countdown-container" class="countdown-container">
+                    <div class="countdown-item">
+                        <span id="days" class="countdown-number">00</span>
+                        <span class="countdown-label">Días</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="hours" class="countdown-number">00</span>
+                        <span class="countdown-label">Horas</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="minutes" class="countdown-number">00</span>
+                        <span class="countdown-label">Minutos</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="seconds" class="countdown-number">00</span>
+                        <span class="countdown-label">Segundos</span>
+                    </div>
+                </div>
+                <a href="INSCRIPCION_URL" style="display: inline-block; margin-top: 20px; cursor: not-allowed;">
+                    <button class="mas_info" disabled>Inscribirte aquí</button>
+                </a>
+            </div>
 
             <div class="cursos">
                 <a href="programador.html" target="">
@@ -467,6 +489,46 @@
             </div>
         </footer>
     </main>
+    <script src="config.js"></script>
+    <script>
+        // Reemplazar el enlace de inscripción con la URL configurada
+        const inscripcionLink = document.querySelector('a[href="INSCRIPCION_URL"]');
+        if (inscripcionLink) {
+            inscripcionLink.href = INSCRIPCION_URL;
+        }
+
+        // Contador regresivo
+        function actualizarContador() {
+            // Fecha objetivo: 1ro de Febrero de 2026 a las 00:00hs (horario de Argentina UTC-3)
+            const fechaObjetivo = new Date('2026-02-01T00:00:00-03:00').getTime();
+            const ahora = new Date().getTime();
+            const diferencia = fechaObjetivo - ahora;
+
+            if (diferencia > 0) {
+                // Calcular días, horas, minutos y segundos
+                const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+                const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+                const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+                // Actualizar los elementos del DOM
+                document.getElementById('days').textContent = String(dias).padStart(2, '0');
+                document.getElementById('hours').textContent = String(horas).padStart(2, '0');
+                document.getElementById('minutes').textContent = String(minutos).padStart(2, '0');
+                document.getElementById('seconds').textContent = String(segundos).padStart(2, '0');
+            } else {
+                // Si ya pasó la fecha, mostrar ceros
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+            }
+        }
+
+        // Actualizar el contador cada segundo
+        actualizarContador();
+        setInterval(actualizarContador, 1000);
+    </script>
     <script src="script.js"></script>
 </body>
 
