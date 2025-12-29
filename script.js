@@ -97,9 +97,31 @@ fetch(`${apiUrl}?cursos=true`)
     })
     .catch(error => console.error('Error al cargar los cursos:', error));
 
+// Funciones para manejar el estado del botón y el spinner
+function deshabilitarBoton() {
+    const submitBtn = document.getElementById('submit-btn');
+    const spinner = document.getElementById('loading-spinner');
+    submitBtn.disabled = true;
+    submitBtn.style.cursor = 'not-allowed';
+    submitBtn.style.opacity = '0.6';
+    spinner.style.display = 'inline-block';
+}
+
+function habilitarBoton() {
+    const submitBtn = document.getElementById('submit-btn');
+    const spinner = document.getElementById('loading-spinner');
+    submitBtn.disabled = false;
+    submitBtn.style.cursor = 'pointer';
+    submitBtn.style.opacity = '1';
+    spinner.style.display = 'none';
+}
+
 // Enviar los datos del formulario a Google Sheets
 document.getElementById('inscripcion-form').addEventListener('submit', function (e) {
     e.preventDefault();
+
+    // Deshabilitar el botón y mostrar el spinner
+    deshabilitarBoton();
 
     const cursoSeleccionado = document.getElementById('curso').value;
 
@@ -131,12 +153,16 @@ document.getElementById('inscripcion-form').addEventListener('submit', function 
             };
 
             // Mostrar el número de inscripción antes de enviar
-            alert('Su número de inscripción será: ' + datos.numeroInscripcion + ". ¿confirma su solicitud?");
+            const confirmar = confirm('Su número de inscripción será: ' + datos.numeroInscripcion + ". ¿Confirma su solicitud?");
+            
+            if (!confirmar) {
+                // Si el usuario cancela, habilitar el botón nuevamente
+                habilitarBoton();
+                return;
+            }
 
             // Enviar datos a Google Sheets (sin el parámetro cursos=true)
             try {
-            
-            
                  fetch(apiUrl, {
                      method: 'POST',
                     body: JSON.stringify(datos),
@@ -156,14 +182,22 @@ document.getElementById('inscripcion-form').addEventListener('submit', function 
                      })
                     .catch(error => {
                          console.error('Error al enviar los datos:', error);
+                         alert('Hubo un error al enviar tu inscripción. Por favor, intenta nuevamente.');
+                         habilitarBoton();
                     });
             } catch (error) {
                 console.error(error);
                 alert('Hubo un problema al enviar tu inscripción. Por favor, intenta nuevamente.');
+                habilitarBoton();
             }
         } else {
             alert('No se pudo obtener el número de inscripción.');
+            habilitarBoton();
         }
+    }).catch(error => {
+        console.error('Error al obtener la última fila:', error);
+        alert('Hubo un error al procesar tu solicitud. Por favor, intenta nuevamente.');
+        habilitarBoton();
     });
 });
 
