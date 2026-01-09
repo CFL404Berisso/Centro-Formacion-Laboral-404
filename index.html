@@ -151,7 +151,7 @@
                         <span class="countdown-label">Segundos</span>
                     </div>
                 </div>
-                <a href="INSCRIPCION_URL" style="display: inline-block; margin-top: 20px; cursor: not-allowed;">
+                <a id="link-inscripcion" href="INSCRIPCION_URL" style="display: inline-block; margin-top: 20px; cursor: not-allowed;">
                     <button class="mas_info" disabled>Inscribirte aquí</button>
                 </a>
             </div>
@@ -491,16 +491,20 @@
     </main>
     <script src="config.js"></script>
     <script>
-        // Reemplazar el enlace de inscripción con la URL configurada
-        const inscripcionLink = document.querySelector('a[href="INSCRIPCION_URL"]');
-        if (inscripcionLink) {
-            inscripcionLink.href = INSCRIPCION_URL;
+        // Reemplazar el enlace de inscripción con la URL configurada (solo si aún no ha pasado la fecha)
+        const inscripcionLink = document.getElementById('link-inscripcion');
+        if (inscripcionLink && inscripcionLink.href.includes('INSCRIPCION_URL')) {
+            // No cambiar el href todavía si las inscripciones no están abiertas
+            // Se cambiará cuando se active la función activarInscripciones()
         }
 
         // Contador regresivo
+        let intervaloContador = null;
+        
+        // Usar FECHA_OBJETIVO de config.js
+        const fechaObjetivo = FECHA_OBJETIVO;
+        
         function actualizarContador() {
-            // Fecha objetivo: 1ro de Febrero de 2026 a las 00:00hs (horario de Argentina UTC-3)
-            const fechaObjetivo = new Date('2026-02-01T00:00:00-03:00').getTime();
             const ahora = new Date().getTime();
             const diferencia = fechaObjetivo - ahora;
 
@@ -517,17 +521,61 @@
                 document.getElementById('minutes').textContent = String(minutos).padStart(2, '0');
                 document.getElementById('seconds').textContent = String(segundos).padStart(2, '0');
             } else {
-                // Si ya pasó la fecha, mostrar ceros
-                document.getElementById('days').textContent = '00';
-                document.getElementById('hours').textContent = '00';
-                document.getElementById('minutes').textContent = '00';
-                document.getElementById('seconds').textContent = '00';
+                // Si ya pasó la fecha, activar inscripciones
+                activarInscripciones();
             }
         }
 
-        // Actualizar el contador cada segundo
-        actualizarContador();
-        setInterval(actualizarContador, 1000);
+        function activarInscripciones() {
+            // Detener el intervalo del contador
+            if (intervaloContador) {
+                clearInterval(intervaloContador);
+                intervaloContador = null;
+            }
+
+            // Actualizar la URL en config.js
+            actualizarURLInscripcion();
+
+            // Ocultar el contador
+            const countdownContainer = document.getElementById('countdown-container');
+            if (countdownContainer) {
+                countdownContainer.style.display = 'none';
+            }
+
+            // Cambiar el mensaje
+            const mensajeProximamente = document.querySelector('.texto_proximamente');
+            if (mensajeProximamente) {
+                mensajeProximamente.textContent = '¡Inscripciones abiertas! Ya puedes inscribirte en los cursos.';
+                mensajeProximamente.style.color = 'var(--ligth-blue)';
+                mensajeProximamente.style.fontWeight = '700';
+            }
+
+            // Habilitar el botón de inscripción
+            const botonInscripcion = document.getElementById('link-inscripcion');
+            if (botonInscripcion) {
+                botonInscripcion.style.cursor = 'pointer';
+                botonInscripcion.href = INSCRIPCION_URL;
+                botonInscripcion.style.pointerEvents = 'auto';
+                const boton = botonInscripcion.querySelector('button.mas_info');
+                if (boton) {
+                    boton.disabled = false;
+                    boton.textContent = 'Inscribirte aquí';
+                }
+            }
+        }
+
+        // Verificar si ya pasó la fecha al cargar
+        const ahora = new Date().getTime();
+        const diferencia = fechaObjetivo - ahora;
+        
+        if (diferencia <= 0) {
+            // Si ya pasó la fecha, mostrar estado final directamente sin contador
+            activarInscripciones();
+        } else {
+            // Si aún no pasó, iniciar el contador
+            actualizarContador();
+            intervaloContador = setInterval(actualizarContador, 1000);
+        }
     </script>
     <script src="script.js"></script>
 </body>
