@@ -769,6 +769,30 @@ li .extras:active, li .extras:hover {
     grid-column: 1 / -1;
 }
 
+.separador_etapa {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+    margin: 1rem 0 0.5rem 0;
+    grid-column: 1 / -1;
+}
+
+.separador_etapa__linea {
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--ligth-blue), transparent);
+}
+
+.separador_etapa__texto {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--blue);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    white-space: nowrap;
+}
+
 /* Estilos del contador regresivo */
 .countdown-container {
     display: flex;
@@ -915,6 +939,13 @@ li .extras:active, li .extras:hover {
         margin: 2rem auto 1.5rem auto;
         padding: 0 1rem;
     }
+    .separador_etapa__texto {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+    }
+    .separador_etapa {
+        gap: 1rem;
+    }
 }
 @media (max-width: 500px) {
     .final {
@@ -948,6 +979,12 @@ li .extras:active, li .extras:hover {
     .proximamente {
         margin: 2rem auto 1.5rem auto;
         padding: 0 1rem;
+    }
+    .separador_etapa__texto {
+        font-size: 1.3rem;
+    }
+    .separador_etapa {
+        gap: 0.75rem;
     }
     .social2 {
         margin-top: 2rem;
